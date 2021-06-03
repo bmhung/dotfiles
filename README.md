@@ -1,5 +1,12 @@
 # dotfiles
 
+- oh-my-zsh
+- zsh-syntax-highlighting
+- zsh-autosuggestions
+- zsh prompt pure
+- nvm
+  
+
 ## tmux
 
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
