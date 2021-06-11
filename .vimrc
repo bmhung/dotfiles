@@ -37,6 +37,7 @@ call plug#end()
 :noremap <leader>p "+p
 :noremap <leader>t :BTags<CR>
 :noremap <C-p> :GFiles<CR>
+:noremap <C-b> :Buffer<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
