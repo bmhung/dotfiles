@@ -1,3 +1,11 @@
+`alias dotgit='/usr/bin/git --git-dir=$HOME/.dotgit/ --work-tree=$HOME'`
+
+`echo ".cfg" >> .gitignore`
+
+`git clone --bare https://github.com/bmhung/dotfiles.git $HOME/.cfg`
+
+`dotgit checkout`
+
 # dotfiles
 
 - oh-my-zsh
