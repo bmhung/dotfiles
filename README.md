@@ -4,7 +4,7 @@
 
 `git clone --bare https://github.com/bmhung/dotfiles.git $HOME/.dotgit`
 
-`dotgit --local status.showUntrackedFiles no`
+`dotgit config --local status.showUntrackedFiles no`
 
 `dotgit checkout`
 
