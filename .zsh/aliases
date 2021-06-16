@@ -1,0 +1,1 @@
+alias dotgit='/usr/bin/git --git-dir=/Users/hungbui/dotfiles/ --work-tree=/Users/hungbui'
