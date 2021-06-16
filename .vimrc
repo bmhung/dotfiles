@@ -91,6 +91,7 @@ set numberwidth=2
 set mouse=a
 set background=dark
 
+" Italic
 set t_ZH=[3m
 set t_ZR=[23m
 

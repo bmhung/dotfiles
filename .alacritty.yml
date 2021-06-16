@@ -23,6 +23,7 @@ env:
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
   TERM: xterm-256color-italic
+  # TERM: xterm-256color
 
 
 window:
@@ -116,7 +117,7 @@ font:
     family: Victor Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Light
 
   # Bold font face
   bold:
@@ -138,7 +139,7 @@ font:
     family: Victor Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Oblique
+    style: Light Oblique
 
   # Bold italic font face
   bold_italic:
@@ -149,10 +150,10 @@ font:
     family: Victor Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Bold Oblique
+    style: Oblique
 
   # Point size
-  size: 12.0
+  size: 15.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
