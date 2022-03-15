@@ -2,14 +2,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot'
 
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'lewis6991/gitsigns.nvim'
 
-Plug 'dense-analysis/ale'
+Plug 'famiu/feline.nvim'
+
+" Plug 'dense-analysis/ale'
 
 Plug 'tpope/vim-fugitive'
 
@@ -23,13 +27,24 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'alvan/vim-closetag'
 
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 
 Plug 'tpope/vim-commentary'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'airblade/vim-gitgutter'
+
+Plug 'mhinz/vim-startify'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
+
+Plug 'projekt0n/github-nvim-theme'
+
+Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 
@@ -39,14 +54,29 @@ call plug#end()
 :noremap <C-p> :GFiles<CR>
 :noremap <C-b> :Buffer<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
 "coc-explorer
 nmap <leader>e :CocCommand explorer<CR>
+nnoremap <C-f> :CocCommand explorer<CR>
+nnoremap <C-t> :CocCommand explorer<CR>
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>do <Plug>(coc-codeaction)
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -107,13 +137,40 @@ let g:ale_fixers = {
 
 let g:closetag_filenames = '*.html,*.jsx'
 
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 let g:gruvbox_italic=1
-autocmd vimenter * ++nested colorscheme gruvbox
+" colorscheme nord
+" syntax enable
+colorscheme gruvbox
+" autocmd vimenter * ++nested colorscheme gruvbox
 highlight Comment cterm=italic
 
+" cursor
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
+
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   highlight = {
+"     enable = true,
+"     additional_vim_regex_highlighting = false,
+"   },
+" }
+" EOF
+
+" lua <<EOF
+" require('feline').setup({
+"     preset = 'noicon'
+" })
+" EOF
+
+:lua require('nvim-web-devicons').setup({ default = true })
+:lua require('gitsigns').setup()
+:lua require('feline_setup')
 
 runtime vimcoc
