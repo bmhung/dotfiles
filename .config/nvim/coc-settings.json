@@ -1,0 +1,8 @@
+{
+  "javascript.suggestionActions.enabled": false,
+  "coc.preferences.colorSupport": true,
+  "suggest.floatEnable": false,
+  "signature.enable": false,
+  "signature.target": "echo",
+  "hover.target": "echo"
+}
