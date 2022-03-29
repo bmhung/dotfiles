@@ -1,3 +1,9 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot'
@@ -130,9 +136,6 @@ set numberwidth=2
 set mouse=a
 set background=dark
 
-" Italic
-set t_ZH=[3m
-set t_ZR=[23m
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -146,6 +149,11 @@ let g:ale_fixers = {
 
 let g:closetag_filenames = '*.html,*.jsx'
 
+" Italic
+" set t_ZH=[3m
+" set t_ZR=[23m
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 if has('termguicolors')
   set termguicolors
 endif
@@ -180,6 +188,6 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
 
 :lua require('nvim-web-devicons').setup({ default = true })
 :lua require('gitsigns').setup()
-:lua require('feline_setup')
+" :lua require('feline_setup')
 
 runtime vimcoc
