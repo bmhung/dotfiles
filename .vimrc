@@ -185,7 +185,7 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
 "     preset = 'noicon'
 " })
 " EOF
-
+:lua require('telescope').setup({ defaults = { file_ignore_patterns = { "node_modules" } } })
 :lua require('nvim-web-devicons').setup({ default = true })
 :lua require('gitsigns').setup()
 " :lua require('feline_setup')
