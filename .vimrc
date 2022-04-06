@@ -61,7 +61,7 @@ call plug#end()
 :noremap <leader>t :BTags<CR>
 " :noremap <C-p> :GFiles<CR>
 " :noremap <C-b> :Buffer<CR>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').resume()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
@@ -190,5 +190,8 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
 :lua require('nvim-web-devicons').setup({ default = true })
 :lua require('gitsigns').setup()
 :lua require('feline_setup')
+
+" CoC extensions
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-snippets', 'coc-highlight', 'coc-json', 'coc-eslint' ]
 
 runtime vimcoc
