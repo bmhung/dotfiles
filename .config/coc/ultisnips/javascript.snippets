@@ -1,0 +1,61 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet de
+debugger;
+endsnippet
+snippet cl "console.log"
+console.log('${0}', ${0});
+endsnippet
+snippet ce "console.error"
+console.error(${0});
+endsnippet
+snippet cdir "console.dir"
+console.dir(${0:obj});
+endsnippet
+snippet if "if (condition) { ... }"
+if`!p snip.rv = keyword_spacing(snip)`(${1:true}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet ife "if (condition) { ... } else { ... }"
+if`!p snip.rv = keyword_spacing(snip)`(${1:true}) {
+	${VISUAL}$0
+}`!p snip.rv = keyword_spacing(snip)`else`!p snip.rv = keyword_spacing(snip)`{
+	${2}
+}
+endsnippet
+
+snippet switch
+switch`!p snip.rv = keyword_spacing(snip)`(${VISUAL}${1:expression}) {
+	case '${VISUAL}${3:case}':
+		${4}
+		break;
+	${0}
+	default:
+		${2}
+}
+endsnippet
