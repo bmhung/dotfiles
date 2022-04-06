@@ -65,6 +65,7 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
 :noremap <C-p> <cmd>lua require('telescope.builtin').find_files()<CR>
 :noremap <C-b> <cmd>lua require('telescope.builtin').buffers()<CR>
 
@@ -188,6 +189,6 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
 :lua require('telescope').setup({ defaults = { file_ignore_patterns = { "node_modules" } } })
 :lua require('nvim-web-devicons').setup({ default = true })
 :lua require('gitsigns').setup()
-" :lua require('feline_setup')
+:lua require('feline_setup')
 
 runtime vimcoc

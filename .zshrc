@@ -126,3 +126,4 @@ export PATH="/usr/local/opt/elasticsearch@6/bin:$PATH"
 alias vi="nvim"
 
 export APPLANGA_ACCESS_TOKEN="60efaa1d0dc66862849050ed!a4271a8cdcbc1762f377fbf552cd489b"
+export GPG_TTY=$(tty)
