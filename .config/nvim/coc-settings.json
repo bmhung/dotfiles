@@ -1,8 +1,11 @@
 {
   "javascript.suggestionActions.enabled": false,
-  "coc.preferences.colorSupport": true,
+  "coc.preferences.semanticTokensHighlights": false,
+  "coc.preferences.colorSupport": false,
   "suggest.floatEnable": false,
   "signature.enable": false,
   "signature.target": "echo",
-  "hover.target": "echo"
+  "hover.target": "echo",
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true
 }

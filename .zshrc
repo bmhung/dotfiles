@@ -63,6 +63,7 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  k
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -122,8 +123,8 @@ export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/elasticsearch@6/bin:$PATH"
+export PATH="$HOME/projects/side/limelight/bin:$PATH"
 
 alias vi="nvim"
 
-export APPLANGA_ACCESS_TOKEN="60efaa1d0dc66862849050ed!a4271a8cdcbc1762f377fbf552cd489b"
 export GPG_TTY=$(tty)
