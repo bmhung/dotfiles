@@ -94,7 +94,7 @@ components.active[1] = {
     icon = ''
   },
   {
-    provider = 'file_info',
+    provider = { name = "file_info", opts = { type = "relative" } },
     hl = {
       fg = 'brightwhite',
       bg = 'deepblue',
@@ -191,7 +191,7 @@ components.inactive[2] = {
     }
   },
   {
-    provider = 'file_info',
+    provider = { name = "file_info", opts = { type = "relative" } },
     hl = {
       fg = 'white',
       bg = 'inactiveblack',
