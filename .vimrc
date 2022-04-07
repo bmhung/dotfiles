@@ -6,7 +6,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Plug 'preservim/nerdtree'
 
@@ -34,6 +34,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 
 " Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'sainnhe/gruvbox-material'
 
 Plug 'tpope/vim-commentary'
 
@@ -46,13 +48,14 @@ Plug 'mhinz/vim-startify'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'rktjmp/lush.nvim'
-Plug 'ellisonleao/gruvbox.nvim'
 
 Plug 'projekt0n/github-nvim-theme'
 
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'stevearc/aerial.nvim'
 
 call plug#end()
 
@@ -93,12 +96,17 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Create a split window
+nnoremap <silent> s- :split<CR>
+nnoremap <silent> s\ :vsplit<CR>
 
 "coc snippet tab
 inoremap <silent><expr> <TAB>
@@ -151,18 +159,20 @@ set numberwidth=2
 set mouse=a
 set background=dark
 
+" Disable quote concealing in JSON files
+let g:vim_json_conceal=0
 
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'javascriptreact': ['eslint'],
-\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'jsx': ['eslint']
-\}
+" let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \   'javascriptreact': ['eslint'],
+" \}
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['eslint'],
+" \   'jsx': ['eslint']
+" \}
 
-let g:closetag_filenames = '*.html,*.jsx'
+let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 
 " Italic
 " set t_ZH=[3m
@@ -173,9 +183,12 @@ if has('termguicolors')
   set termguicolors
 endif
 let g:gruvbox_italic=1
+let g:gruvbox_italicize_strings=1
+
 " colorscheme nord
 " syntax enable
 colorscheme gruvbox
+" colorscheme gruvbox-material
 " autocmd vimenter * ++nested colorscheme gruvbox
 highlight Comment cterm=italic
 
@@ -185,15 +198,17 @@ let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
 
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   highlight = {
-"     enable = true,
-"     additional_vim_regex_highlighting = false,
-"   },
-" }
-" EOF
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
 
 " lua <<EOF
 " require('feline').setup({
@@ -204,8 +219,22 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
 :lua require('nvim-web-devicons').setup({ default = true })
 :lua require('gitsigns').setup()
 :lua require('feline_setup')
+lua <<EOF
+require("aerial").setup({
+  on_attach = function(bufnr)
+    -- Toggle the aerial window with <leader>a
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+    -- Jump forwards/backwards with '{' and '}'
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '{', '<cmd>AerialPrev<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '}', '<cmd>AerialNext<CR>', {})
+    -- Jump up the tree with '[[' or ']]'
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
+  end
+})
+EOF
 
 " CoC extensions
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-snippets', 'coc-highlight', 'coc-json', 'coc-eslint' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-snippets', 'coc-json', 'coc-eslint' ]
 
 runtime vimcoc
