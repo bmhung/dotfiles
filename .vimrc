@@ -37,7 +37,11 @@ Plug 'alvan/vim-closetag'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'sainnhe/gruvbox-material'
 
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
+" Plug 'suy/vim-context-commentstring'
+
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -108,6 +112,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> s- :split<CR>
 nnoremap <silent> s\ :vsplit<CR>
 
+" Git blame
+nmap <leader>gb <cmd>Git blame<cr>
+
 "coc snippet tab
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -159,6 +166,11 @@ set numberwidth=2
 set mouse=a
 set background=dark
 
+filetype plugin on
+
+autocmd bufnewfile,bufread *.tsx set filetype=typescript.tsx
+autocmd bufnewfile,bufread *.jsx set filetype=javascript.jsx
+
 " Disable quote concealing in JSON files
 let g:vim_json_conceal=0
 
@@ -207,6 +219,10 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
 }
 EOF
 
@@ -215,10 +231,32 @@ EOF
 "     preset = 'noicon'
 " })
 " EOF
+
 :lua require('telescope').setup({ defaults = { file_ignore_patterns = { "node_modules" } } })
 :lua require('nvim-web-devicons').setup({ default = true })
 :lua require('gitsigns').setup()
 :lua require('feline_setup')
+
+lua <<EOF
+require('Comment').setup({
+  pre_hook = function(ctx)
+    local U = require 'Comment.utils'
+
+    local location = nil
+    if ctx.ctype == U.ctype.block then
+      location = require('ts_context_commentstring.utils').get_cursor_location()
+    elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+      location = require('ts_context_commentstring.utils').get_visual_start_location()
+    end
+
+    return require('ts_context_commentstring.internal').calculate_commentstring {
+      key = ctx.ctype == U.ctype.line and '__default' or '__multiline',
+      location = location,
+    }
+  end,
+})
+EOF
+
 lua <<EOF
 require("aerial").setup({
   on_attach = function(bufnr)
