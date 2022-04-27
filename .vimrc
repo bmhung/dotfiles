@@ -74,7 +74,7 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
 :noremap <C-p> <cmd>lua require('telescope.builtin').find_files()<CR>
-:noremap <C-b> <cmd>lua require('telescope.builtin').buffers()<CR>
+:noremap <C-b> <cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<CR>
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
