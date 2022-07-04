@@ -44,3 +44,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 - Install Plug `:PlugInstall`
 - Reload vim `:so %`
+
+```
+TSInstall graphql javascript tsx typescript
+```
