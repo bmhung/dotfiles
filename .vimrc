@@ -58,6 +58,7 @@ Plug 'projekt0n/github-nvim-theme'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'stevearc/aerial.nvim'
 
@@ -204,6 +205,9 @@ set numberwidth=2
 set mouse=a
 set background=dark
 
+set ignorecase
+set smartcase
+
 filetype plugin on
 
 autocmd bufnewfile,bufread *.tsx set filetype=typescript.tsx
@@ -271,6 +275,8 @@ EOF
 " EOF
 
 :lua require('telescope').setup({ defaults = { file_ignore_patterns = { "node_modules" } } })
+:lua require('telescope').load_extension('fzf')
+
 :lua require('nvim-web-devicons').setup({ default = true })
 :lua require('gitsigns').setup()
 :lua require('feline_setup')
