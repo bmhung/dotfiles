@@ -74,6 +74,7 @@ source $ZSH/oh-my-zsh.sh
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME=""
 autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL='>'
 prompt pure
 
 # Set list of themes to pick from when loading at random
@@ -124,7 +125,9 @@ export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/elasticsearch@6/bin:$PATH"
 export PATH="$HOME/projects/side/limelight/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 alias vi="nvim"
 
+alias glances="/.local/lib/python3.10/site-packages/glances"
 export GPG_TTY=$(tty)
