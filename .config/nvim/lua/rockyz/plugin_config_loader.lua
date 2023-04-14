@@ -12,6 +12,8 @@ local modules = {
   "lualine",
   "luasnip",
   "lsp.lsp-config",
+  "mason",
+  "neo-tree",
   "nvim-ufo",
   "nvim-colorizer",
   "project",
@@ -20,6 +22,7 @@ local modules = {
   "telescope.telescope-config",
   "test",
   "vim-illuminate",
+  "whichkey",
 }
 for _, module in ipairs(modules) do
   require("rockyz.plugin-config." .. module)

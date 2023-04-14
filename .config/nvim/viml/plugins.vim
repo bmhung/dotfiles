@@ -27,6 +27,10 @@ function! PackInit() abort
   call minpac#add('kevinhwang91/nvim-ufo')
   call minpac#add('kevinhwang91/promise-async') " required by kevin's plugins
   call minpac#add('lukas-reineke/indent-blankline.nvim')
+  call minpac#add('williamboman/mason.nvim', { 'do': ':MasonUpdate' })
+
+  " Neotree
+  call minpac#add('MunifTanjim/nui.nvim')
   call minpac#add('nvim-neo-tree/neo-tree.nvim')
 
   " Telescope
@@ -80,6 +84,7 @@ function! PackInit() abort
   call minpac#add('dracula/vim', { 'name': 'dracula' })
   call minpac#add('EdenEast/nightfox.nvim')
 
-  " Test
+  " Which key
+  call minpac#add('folke/which-key.nvim')
 
 endfunction
