@@ -60,8 +60,8 @@ telescope.setup {
 
 -- Extensions
 telescope.load_extension('fzf')
-telescope.load_extension('harpoon')
-telescope.load_extension('projects')
+-- telescope.load_extension('harpoon')
+-- telescope.load_extension('projects')
 
 -- Mappings
 local map_opts = {

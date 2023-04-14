@@ -1,4 +1,4 @@
-let g:colorscheme = "arctic"
+let g:colorscheme = "gruvbox"
 let g:transparent = 1
 
 set termguicolors

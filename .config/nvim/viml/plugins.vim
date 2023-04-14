@@ -15,12 +15,12 @@ function! PackInit() abort
   call minpac#add('mbbill/undotree')
   call minpac#add('yanzhang0219/lualine.nvim')
   call minpac#add('junegunn/fzf', { 'do': 'packloadall! | call fzf#install()' })  " as a filter for bqf
-  call minpac#add('mhinz/vim-grepper')
+  " call minpac#add('mhinz/vim-grepper')
   call minpac#add('haya14busa/vim-asterisk')
   call minpac#add('tommcdo/vim-exchange') " cx{motion}, cxx (line), X (visual), cxc (clear), `.` is supported
   call minpac#add('tversteeg/registers.nvim')
-  call minpac#add('ThePrimeagen/harpoon')
-  call minpac#add('ahmedkhalf/project.nvim')
+  " call minpac#add('ThePrimeagen/harpoon')
+  " call minpac#add('ahmedkhalf/project.nvim')
   call minpac#add('kevinhwang91/nvim-fFHighlight')
   call minpac#add('kevinhwang91/nvim-hlslens')
   call minpac#add('kevinhwang91/nvim-bqf')
@@ -38,9 +38,9 @@ function! PackInit() abort
   call minpac#add('nvim-telescope/telescope.nvim')
 
   " Text object
-  call minpac#add('junegunn/vim-after-object')
-  call minpac#add('michaeljsmith/vim-indent-object')
-  call minpac#add('wellle/targets.vim')
+  " call minpac#add('junegunn/vim-after-object')
+  " call minpac#add('michaeljsmith/vim-indent-object')
+  " call minpac#add('wellle/targets.vim')
 
   " LSP
   call minpac#add('neovim/nvim-lspconfig')
@@ -55,8 +55,8 @@ function! PackInit() abort
   call minpac#add('onsails/lspkind.nvim')
 
   " Snippets
-  call minpac#add('L3MON4D3/LuaSnip')
-  call minpac#add('saadparwaiz1/cmp_luasnip')
+  " call minpac#add('L3MON4D3/LuaSnip')
+  " call minpac#add('saadparwaiz1/cmp_luasnip')
 
   " Treesitter
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
@@ -72,17 +72,18 @@ function! PackInit() abort
   call minpac#add('ruanyl/vim-gh-line')
 
   " Markdown
-  call minpac#add('iamcco/markdown-preview.nvim', {'type': 'opt', 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()'}) " config at ftplugin/markdown.vim
+  " call minpac#add('iamcco/markdown-preview.nvim', {'type': 'opt', 'do': 'packadd markdown-preview.nvim | call mkdp#util#install()'}) " config at ftplugin/markdown.vim
 
   " Icons
   call minpac#add('kyazdani42/nvim-web-devicons')
 
   " Color schemes
-  call minpac#add('rktjmp/lush.nvim')
-  call minpac#add('rockyzhang24/arctic.nvim')
-  call minpac#add('folke/tokyonight.nvim')
-  call minpac#add('dracula/vim', { 'name': 'dracula' })
-  call minpac#add('EdenEast/nightfox.nvim')
+  " call minpac#add('rktjmp/lush.nvim')
+  " call minpac#add('rockyzhang24/arctic.nvim')
+  " call minpac#add('folke/tokyonight.nvim')
+  " call minpac#add('dracula/vim', { 'name': 'dracula' })
+  " call minpac#add('EdenEast/nightfox.nvim')
+  call minpac#add('ellisonleao/gruvbox.nvim')
 
   " Which key
   call minpac#add('folke/which-key.nvim')

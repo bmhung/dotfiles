@@ -114,20 +114,21 @@ vnoremap <Leader>y "+y
 nmap <Leader>Y "+Y
 
 " Paste and then format
-nnoremap p p=`]
+" nnoremap p p=`]
 
 " Paste over the selected text
-xnoremap p "_c<Esc>p
+" xnoremap p "_c<Esc>p
 
 " Select the last changed (or pasted) text
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+" nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Paste non-linewise text above or below current cursor
-nnoremap <Leader>p m`o<Esc>p``
-nnoremap <Leader>P m`O<Esc>p``
+" nnoremap <Leader>p m`o<Esc>p``
+" nnoremap <Leader>P m`O<Esc>p``
+nnoremap <Leader>p "+p
 
 " Paste text and replace the selection
-xnoremap <Leader>p "_dP
+" xnoremap <Leader>p "_dP
 
 " }}}
 
