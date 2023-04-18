@@ -16,6 +16,7 @@ require 'nvim-treesitter.configs'.setup {
     "python",
     "rust",
     "sql",
+    "tsx",
     "typescript",
     "yaml",
   },
