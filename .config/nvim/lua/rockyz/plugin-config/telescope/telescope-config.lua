@@ -75,6 +75,7 @@ vim.keymap.set('n', '<Leader>fo', my_picker.oldfiles, map_opts)
 vim.keymap.set('n', '<Leader>f.', my_picker.find_dotfiles, map_opts)
 
 -- Misc
+vim.keymap.set('n', '<C-b>', my_picker.buffers, map_opts)
 vim.keymap.set('n', '<Leader>fb', my_picker.buffers, map_opts)
 vim.keymap.set('n', '<Leader>f?', my_picker.help_tags, map_opts)
 vim.keymap.set('n', '<Leader>fh', my_picker.highlights, map_opts)

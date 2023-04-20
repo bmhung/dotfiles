@@ -43,7 +43,10 @@ M.find_dotfiles = function()
 end
 
 M.buffers = function()
-  builtin.buffers(theme_opts_nopreview)
+  local opts = {
+    sort_mru = true
+  }
+  builtin.buffers(vim.tbl_deep_extend("force", theme_opts_nopreview, opts))
 end
 
 M.help_tags = function()

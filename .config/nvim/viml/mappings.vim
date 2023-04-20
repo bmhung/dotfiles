@@ -318,5 +318,6 @@ nnoremap <Leader>= <C-w>=
 
 " Close windows by giving the window numbers
 nnoremap <Leader>wc :CloseWin<Space>
+nnoremap <Leader><Leader> <C-^>
 
 " }}}
