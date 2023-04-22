@@ -53,10 +53,11 @@ function! PackInit() abort
   call minpac#add('hrsh7th/cmp-cmdline')
   call minpac#add('hrsh7th/cmp-nvim-lua')
   call minpac#add('onsails/lspkind.nvim')
+  call minpac#add('windwp/nvim-autopairs')
 
   " Snippets
-  " call minpac#add('L3MON4D3/LuaSnip')
-  " call minpac#add('saadparwaiz1/cmp_luasnip')
+  call minpac#add('L3MON4D3/LuaSnip')
+  call minpac#add('saadparwaiz1/cmp_luasnip')
 
   " Treesitter
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
@@ -64,6 +65,9 @@ function! PackInit() abort
   call minpac#add('nvim-treesitter/nvim-treesitter-textobjects')
   call minpac#add('JoosepAlviste/nvim-ts-context-commentstring')
   call minpac#add('mizlan/iswap.nvim')
+
+  " Linting & Formating
+  call minpac#add('jose-elias-alvarez/null-ls.nvim')
 
   " Git
   call minpac#add('lewis6991/gitsigns.nvim')

@@ -2,6 +2,7 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local feedkeys = require('cmp.utils.feedkeys')
 local keymap = require('cmp.utils.keymap')
+local luasnip = require('luasnip')
 local border_enabled = vim.g.border_enabled
 
 local get_bufnrs = function()
@@ -19,6 +20,11 @@ if border_enabled then
   winhighlight = 'Normal:Normal,' .. winhighlight
 else
   winhighlight = 'Normal:Pmenu,' .. winhighlight
+end
+
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 cmp.setup({
@@ -45,6 +51,26 @@ cmp.setup({
   -- Default mappings can be found here: https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/mapping.lua
   -- Ref: https://github.com/hrsh7th/nvim-cmp/issues/1027
   mapping = {
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     ['<C-n>'] = {
       i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
     },
@@ -63,26 +89,8 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
     }),
-    ['<C-y>'] = {
+    ['<CR>'] = {
       i = cmp.mapping.confirm({ select = true }),
-    },
-    ['<Tab>'] = {
-      c = function()
-        if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        else
-          feedkeys.call(keymap.t('<C-z>'), 'n')
-        end
-      end,
-    },
-    ['<S-Tab>'] = {
-      c = function()
-        if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-        else
-          feedkeys.call(keymap.t('<C-z>'), 'n')
-        end
-      end,
     },
   },
 
@@ -98,7 +106,6 @@ cmp.setup({
       },
     },
     { name = 'path' },
-    { name = 'nvim_lua' }, -- nvim_lua make it only be enabled for Lua filetype
   }),
 
   formatting = {
