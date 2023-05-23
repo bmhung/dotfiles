@@ -22,3 +22,7 @@ execute 'colorscheme ' . g:colorscheme
 if g:transparent && $WEZTERM_CONFIG_DIR != ""
   highlight Normal guibg=NONE
 endif
+
+hi def IlluminatedWordText guibg=#3c3836
+hi def IlluminatedWordRead guibg=#3c3836
+hi def IlluminatedWordWrite guibg=#3c3836
