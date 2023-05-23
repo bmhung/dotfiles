@@ -12,14 +12,14 @@ telescope.setup {
     mappings = {
       i = {
         -- Consistent with fzf key bindings in terminal
-        ["<C-j>"] = "move_selection_next",
-        ["<C-k>"] = "move_selection_previous",
+        ["<C-n>"] = "move_selection_next",
+        ["<C-p>"] = "move_selection_previous",
         ["<C-u>"] = "results_scrolling_up",
         ["<C-d>"] = "results_scrolling_down",
         ["<M-u>"] = "preview_scrolling_up",
         ["<M-d>"] = "preview_scrolling_down",
-        ["<C-n>"] = "cycle_history_next",
-        ["<C-p>"] = "cycle_history_prev",
+        ["<C-j>"] = "cycle_history_next",
+        ["<C-k>"] = "cycle_history_prev",
         ["<M-a>"] = "toggle_all",
         ["<C-Enter>"] = "toggle_selection",
         ["<M-p>"] = require("telescope.actions.layout").toggle_preview,
