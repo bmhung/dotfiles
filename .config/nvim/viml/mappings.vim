@@ -175,6 +175,10 @@ nnoremap <silent> [q :<C-u>cprevious<CR>zv
 nnoremap <silent> ]q :<C-u>cnext<CR>zv
 nnoremap <silent> [Q :<C-u>cfirst<CR>zv
 nnoremap <silent> ]Q :<C-u>clast<CR>zv
+augroup vimrcQfClose
+    autocmd!
+    autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
+augroup END
 
 " Navigation in the location list
 nnoremap <silent> [l :<C-u>lprevious<CR>zv
