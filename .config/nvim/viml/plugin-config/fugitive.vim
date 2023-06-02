@@ -16,7 +16,7 @@ augroup fugitiveCustom
 augroup END
 
 " Mappings
-nnoremap <silent> ,gs :Git<CR>
+nnoremap <silent> ,gs :vertical Git<CR>
 nnoremap <silent> ,gd :Gdiffsplit<CR>
 nnoremap <silent> ,gc :Git commit<CR>
 nnoremap <silent> ,ge :Gedit<CR>

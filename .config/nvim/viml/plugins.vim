@@ -11,7 +11,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-repeat')
   call minpac#add('RRethy/vim-illuminate')
   call minpac#add('NvChad/nvim-colorizer.lua')
-  call minpac#add('godlygeek/tabular')
+  " call minpac#add('godlygeek/tabular')
   call minpac#add('mbbill/undotree')
   call minpac#add('yanzhang0219/lualine.nvim')
   call minpac#add('junegunn/fzf', { 'do': 'packloadall! | call fzf#install()' })  " as a filter for bqf

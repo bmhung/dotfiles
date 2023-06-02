@@ -35,7 +35,7 @@ local viml_plugins = {
   "fugitive",
   "minpac",
   "netrw",
-  "tabular",
+  -- "tabular",
   "targets",
   "undotree",
   "vim-grepper",
