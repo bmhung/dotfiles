@@ -12,7 +12,7 @@ vim.diagnostic.config({
     source = 'always',
     border = border_enabled and 'single' or 'none',
   },
-  signs = false,
+  signs = true,
   underline = true,
   virtual_text = false,
   update_in_insert = false,
@@ -45,7 +45,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, map_opts)
   vim.keymap.set('n', ',r', vim.lsp.buf.rename, map_opts)
   vim.keymap.set('n', ',a', vim.lsp.buf.code_action, map_opts)
-  -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, map_opts) -- Integrate this
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, map_opts) -- Integrate this
   -- with ufo preview, see ufo config for detail
   vim.keymap.set('n', ',k', vim.lsp.buf.signature_help, map_opts)
   -- List symbols via telescope

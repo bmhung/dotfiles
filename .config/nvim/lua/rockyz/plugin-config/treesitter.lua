@@ -74,9 +74,9 @@ require 'nvim-treesitter.configs'.setup {
       node_decremental = "<Backspace>",
     },
   },
-  context_commentstring = {
-    enable = true,
-  },
+  -- context_commentstring = {
+  --   enable = true,
+  -- },
   playground = {
     enable = false,
   },

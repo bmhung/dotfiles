@@ -13,7 +13,7 @@ function! PackInit() abort
   call minpac#add('NvChad/nvim-colorizer.lua')
   " call minpac#add('godlygeek/tabular')
   call minpac#add('mbbill/undotree')
-  call minpac#add('yanzhang0219/lualine.nvim')
+  call minpac#add('yanzhang0219/lualine.nvim', { 'rev': '343e1941ba5ae3167984ade00dad5ba4792f9dd3' })
   call minpac#add('junegunn/fzf', { 'do': 'packloadall! | call fzf#install()' })  " as a filter for bqf
   " call minpac#add('mhinz/vim-grepper')
   call minpac#add('haya14busa/vim-asterisk')
@@ -24,9 +24,9 @@ function! PackInit() abort
   call minpac#add('kevinhwang91/nvim-fFHighlight')
   call minpac#add('kevinhwang91/nvim-hlslens')
   call minpac#add('kevinhwang91/nvim-bqf')
-  call minpac#add('kevinhwang91/nvim-ufo')
+  " call minpac#add('kevinhwang91/nvim-ufo')
   call minpac#add('kevinhwang91/promise-async') " required by kevin's plugins
-  call minpac#add('lukas-reineke/indent-blankline.nvim')
+  call minpac#add('lukas-reineke/indent-blankline.nvim', { 'rev': '9637670' })
   call minpac#add('williamboman/mason.nvim', { 'do': ':MasonUpdate' })
 
   " Neotree
@@ -61,13 +61,13 @@ function! PackInit() abort
 
   " Treesitter
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
-  call minpac#add('nvim-treesitter/playground')
+  " call minpac#add('nvim-treesitter/playground')
   call minpac#add('nvim-treesitter/nvim-treesitter-textobjects')
   call minpac#add('JoosepAlviste/nvim-ts-context-commentstring')
   call minpac#add('mizlan/iswap.nvim')
 
   " Linting & Formating
-  call minpac#add('jose-elias-alvarez/null-ls.nvim')
+  " call minpac#add('nvimtools/none-ls.nvim')
 
   " Git
   call minpac#add('lewis6991/gitsigns.nvim')

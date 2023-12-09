@@ -14,9 +14,9 @@ local modules = {
   "lsp.lsp-config",
   "mason",
   "neo-tree",
-  "null-ls",
+  -- "null-ls",
   "nvim-autopairs",
-  "nvim-ufo",
+  --"nvim-ufo",
   "nvim-colorizer",
   -- "project",
   "registers",
@@ -25,6 +25,7 @@ local modules = {
   "test",
   "vim-illuminate",
   "whichkey",
+  -- "statuscol",
 }
 for _, module in ipairs(modules) do
   require("rockyz.plugin-config." .. module)
