@@ -18,7 +18,10 @@
 - k
 ```git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k```
 - zsh prompt pure
-
+```
+mkdir -p "$HOME/.zsh"
+git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+```
 - nvm
   
 
