@@ -26,6 +26,7 @@ source ~/.config/nvim/viml/autocmds.vim
 lua require('rockyz.autocmds')
 
 " Commands
+source ~/.config/nvim/viml/commands.vim
 lua require('rockyz.commands')
 
 " Abbreviations
