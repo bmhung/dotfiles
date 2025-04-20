@@ -1,1 +1,2 @@
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotgit/ --work-tree=$HOME'
+alias dotlazy='lazygit --git-dir=$HOME/.dotgit --work-tree=$HOME'
