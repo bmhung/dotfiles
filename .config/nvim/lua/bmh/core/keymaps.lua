@@ -6,8 +6,6 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 -- General Keymaps -------------------
 
-
-
 -- use jk to exit insert mode
 keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
 
@@ -34,8 +32,8 @@ keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' }) 
 keymap.set('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) --  move current buffer to new tab
 
 -- Go to the start and end of the line easier
-keymap.set({'n', 'v'}, 'H', '^')
-keymap.set({'n', 'v'}, 'L', '$')
+keymap.set({ 'n', 'v' }, 'H', '^')
+keymap.set({ 'n', 'v' }, 'L', '$')
 
 -- Copy
 keymap.set('n', 'Y', 'y$')
@@ -55,7 +53,23 @@ keymap.set('n', '<leader>R', ':%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>') -
 keymap.set('n', '<BS>r', ':set wrap!<CR>:set wrap?<CR>')
 
 -- Toggle relative number
-keymap.set('n', '<BS>n', ':call toggle#ToggleRelativeNum()<CR>')
+function _G.toggle_relativenumber()
+  local rnu = vim.wo.relativenumber
+  local nu = vim.wo.number
+
+  if rnu and nu then
+    -- Currently in hybrid mode (relativenumber + number), switch to number-only
+    vim.wo.relativenumber = false
+  elseif not rnu and nu then
+    -- Currently in number-only mode, switch to hybrid mode
+    vim.wo.relativenumber = true
+  else
+    -- Switch to relative numbers, but enable absolute numbers too for hybrid mode
+    vim.wo.relativenumber = true
+    vim.wo.number = true
+  end
+end
+keymap.set('n', '<BS>n', '<cmd>lua toggle_relativenumber()<CR>')
 
 -- Open last buffer
 keymap.set('n', '<leader><leader>', '<C-^>')
