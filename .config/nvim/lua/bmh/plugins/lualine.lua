@@ -135,8 +135,8 @@ return {
             color = function()
               local buf = vim.api.nvim_get_current_buf()
               local hl_is_enabled = vim.treesitter.highlighter.active[buf]
-              -- local has_parser = require('nvim-treesitter.parsers').has_parser()
-              return { fg = (hl_is_enabled and colors.green or colors.red) or colors.gray }
+              local has_parser = require('nvim-treesitter.parsers').has_parser()
+              return { fg = has_parser and (hl_is_enabled and colors.green or colors.red) or colors.gray }
             end,
             padding = { left = 1, right = 0 },
             cond = hide_in_width,

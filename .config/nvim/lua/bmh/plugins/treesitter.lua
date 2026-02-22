@@ -1,16 +1,51 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  branch = 'master',
   event = { 'BufReadPre', 'BufNewFile' },
+  lazy = false,
   build = ':TSUpdate',
   dependencies = {
     'windwp/nvim-ts-autotag',
   },
+  -- opts = {
+  --   ensure_installed = {
+  --     'json',
+  --     'javascript',
+  --     'typescript',
+  --     'tsx',
+  --     'yaml',
+  --     'html',
+  --     'css',
+  --     'prisma',
+  --     'markdown',
+  --     'markdown_inline',
+  --     'svelte',
+  --     'graphql',
+  --     'bash',
+  --     'lua',
+  --     'vim',
+  --     'dockerfile',
+  --     'gitignore',
+  --     'query',
+  --     'vimdoc',
+  --     'c',
+  --   },
+  --   sync_install = false,
+  --   auto_install = true,
+  --   highlight = {
+  --     enable = true,
+  --   },
+  --   indent = {
+  --     enable = true,
+  --   },
+  -- },
   config = function()
     -- import nvim-treesitter plugin
-    local treesitter = require('nvim-treesitter.config')
+    local treesitter = require('nvim-treesitter.configs')
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
+      install_dir = '',
       highlight = {
         enable = true,
       },
